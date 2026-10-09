@@ -213,3 +213,18 @@ Lok Jagruti Kendra University (LJ University)
 ---
 
 *CommonGround — Local Voice. Shared Action.*
+
+
+## Development Workflow
+
+CommonGround uses GitHub to track project documentation and development tasks.
+
+### Current Progress
+- README.md created
+- GitHub Issue created
+- Documentation branch created
+
+### Next Steps
+- Connect the existing application source code
+- Document the project setup
+- Practise commits and pull requests
