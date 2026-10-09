@@ -228,3 +228,4 @@ CommonGround uses GitHub to track project documentation and development tasks.
 - Connect the existing application source code
 - Document the project setup
 - Practise commits and pull requests
+..
