@@ -1,0 +1,2 @@
+ALTER TABLE public.creator_marketplace_profiles ADD COLUMN display_name text NOT NULL DEFAULT '';
+COMMENT ON COLUMN public.creator_marketplace_profiles.display_name IS 'Creator-facing name copied into the marketplace profile for scoped business discovery.';

@@ -1,0 +1,1 @@
+CREATE POLICY "initiatives_read_manager_lifecycle" ON public.initiatives FOR SELECT TO authenticated USING (status IN ('active','closed') AND public.has_role(auth.uid(), 'initiative_manager'));

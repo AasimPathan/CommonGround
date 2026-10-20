@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { BusinessConnectionsPage } from "@/components/marketplace/marketplace-pages";
+export const Route = createFileRoute("/_authenticated/business/connections")({ head: () => ({ meta: [{ title: "Connections — CommonGround" }, { name: "description", content: "Track CommonGround marketplace connection requests." }, { property: "og:title", content: "Connections — CommonGround" }, { property: "og:description", content: "Track CommonGround marketplace connection requests." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: BusinessConnectionsPage });

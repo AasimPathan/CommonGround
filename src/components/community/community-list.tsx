@@ -1,0 +1,13 @@
+import { useMemo, useState } from "react";
+import { Search, X } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CATEGORIES } from "@/lib/community";
+import { listInitiatives } from "@/lib/community-api";
+import { InitiativeCard } from "./initiative-card";
+import { PageHeader, ScreenState } from "./core";
+
+export function CommunityList() { const [search,setSearch]=useState(""); const [category,setCategory]=useState("all"); const query=useQuery({queryKey:["initiatives","active"],queryFn:()=>listInitiatives("active")}); const filtered=useMemo(()=>{const term=search.toLowerCase().trim();return (query.data??[]).filter(item=>(category==="all"||item.category===category)&&(!term||`${item.title} ${item.description} ${item.location}`.toLowerCase().includes(term)))},[query.data,search,category]);
+return <div className="space-y-10"><PageHeader eyebrow="Creator Community" title="Initiatives worth knowing about" description="Browse reviewed local initiatives, understand the source material, and decide whether you want to support them."/><div className="grid gap-3 rounded-lg border border-border bg-card p-3 sm:grid-cols-[minmax(0,1fr)_260px_auto]"><div className="relative min-w-0"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"/><Input aria-label="Search initiatives" placeholder="Search by title, description, or location" className="pl-9" value={search} onChange={e=>setSearch(e.target.value)}/></div><Select value={category} onValueChange={setCategory}><SelectTrigger aria-label="Filter by category"><SelectValue/></SelectTrigger><SelectContent><SelectItem value="all">All categories</SelectItem>{CATEGORIES.map(c=><SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent></Select><Button variant="ghost" disabled={!search&&category==="all"} onClick={()=>{setSearch("");setCategory("all")}}><X/>Clear</Button></div>{query.isLoading?<ScreenState kind="loading" title="Loading active initiatives"/>:query.isError?<ScreenState kind="error" title="Community unavailable" description="Please try again shortly."/>:filtered.length===0?<ScreenState kind="empty" title={query.data?.length?"No initiatives match your search":"No active initiatives right now"} description="Adjust the filters or check back later."/>:<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{filtered.map(item=><InitiativeCard key={item.id} initiative={item}/>)}</div>}</div>}

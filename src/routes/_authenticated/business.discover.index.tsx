@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { CreatorDiscoveryPage } from "@/components/marketplace/marketplace-pages";
+export const Route = createFileRoute("/_authenticated/business/discover/")({ head: () => ({ meta: [{ title: "Discover creators — CommonGround" }, { name: "description", content: "Discover submitted CommonGround creator profiles using factual filters." }, { property: "og:title", content: "Discover creators — CommonGround" }, { property: "og:description", content: "Discover submitted CommonGround creator profiles using factual filters." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: CreatorDiscoveryPage });

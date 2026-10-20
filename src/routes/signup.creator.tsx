@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { SignupPage } from "@/components/community/signup-page";
+export const Route=createFileRoute("/signup/creator")({head:()=>({meta:[{title:"Creator signup — CommonGround"},{name:"description",content:"Create a CommonGround creator account."},{property:"og:title",content:"Creator signup — CommonGround"},{property:"og:description",content:"Join the CommonGround creator community."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary"}]}),component:()=> <SignupPage role="creator"/>});

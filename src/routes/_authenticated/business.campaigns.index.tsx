@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { CampaignsPage } from "@/components/marketplace/marketplace-pages";
+export const Route = createFileRoute("/_authenticated/business/campaigns/")({ head: () => ({ meta: [{ title: "Campaigns — CommonGround" }, { name: "description", content: "Manage CommonGround marketplace campaigns." }, { property: "og:title", content: "Campaigns — CommonGround" }, { property: "og:description", content: "Manage CommonGround marketplace campaigns." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: CampaignsPage });

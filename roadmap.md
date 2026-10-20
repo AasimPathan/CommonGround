@@ -1,0 +1,11 @@
+- [x] Trace provider limits and duplicate lookup paths.
+- [x] Add pending-request protection and provider-aware cooldown without changing the profile layout.
+- [x] Test single-click RPC count and real quota errors in the signed-in UI; test successful lookup and signed confirmation without extra fetches using fixtures.
+- [x] Replace RapidAPI lookup with GramScraper using the existing preview and confirmation flow (both uploaded briefs request the same integration).
+- [x] Preserve chosen creator fields and test account switching, missing values, and request safety.
+- [x] Verify live GramScraper preview and confirmed persistence with nasa on the existing creator demo account.
+- [x] Verify live switching nasa → natgeo, preserve creator-selected fields, Save draft, and refresh persistence; 14 automated tests pass.
+- [x] Diagnose GramScraper transport failures and return safe status-specific errors without changing UI or saved data; original exception detail was discarded and no historical transport evidence is available.
+- [x] Verify error classification and duplicate safeguards offline (26 tests pass), then perform exactly one configured live lookup: real natgeo preview succeeds, button disabled during request, no confirmation or saved-data changes; previous failure did not reproduce.
+- [x] Trace remaining failure: hosted preview log at 11:30:47 UTC reports network/status null; prior successful tests were local sandbox, not hosted runtime.
+- [ ] Capture environment, stage, timing and sanitized transport type on the hosted deployment, then verify there once; blocked until diagnostic code is deployed and the failing request is captured.

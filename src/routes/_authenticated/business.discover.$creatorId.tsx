@@ -1,0 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { BusinessCreatorProfilePage } from "@/components/marketplace/marketplace-pages";
+export const Route = createFileRoute("/_authenticated/business/discover/$creatorId")({ head: () => ({ meta: [{ title: "Creator profile — CommonGround" }, { name: "description", content: "View a submitted CommonGround creator marketplace profile." }, { property: "og:title", content: "Creator profile — CommonGround" }, { property: "og:description", content: "View a submitted CommonGround creator marketplace profile." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: CreatorRoute });
+function CreatorRoute() { const { creatorId } = Route.useParams(); return <BusinessCreatorProfilePage id={creatorId} />; }
